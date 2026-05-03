@@ -14,25 +14,31 @@
     let
       username = "ryusei";
 
-      # Intel Mac: x86_64-darwin
-      # Apple Silicon: aarch64-darwin
-      system = "aarch64-darwin";
-
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations.${username} =
+      mkHome = { system, homeDirectory }:
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = nixpkgs.legacyPackages.${system};
 
           modules = [
             ./home.nix
 
             {
               home.username = username;
-              home.homeDirectory = "/Users/${username}";
+              home.homeDirectory = homeDirectory;
             }
           ];
         };
+    in
+    {
+      homeConfigurations = {
+        ryusei = mkHome {
+          system = "aarch64-darwin";
+          homeDirectory = "/Users/${username}";
+        };
+
+        ryusei-linux = mkHome {
+          system = "aarch64-linux";
+          homeDirectory = "/home/${username}";
+        };
+      };
     };
 }
