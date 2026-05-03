@@ -17,7 +17,7 @@
     neovim
   ];
 
-  home.file.".zshrc".source = ./zsh/.zshrc;
-  home.file.".gitconfig".source = ./git/.gitconfig;
-  xdg.configFile."nvim".source = ./nvim;
+  home.file.".zshrc".source = ./config/zsh/.zshrc;
+  home.file.".gitconfig".source = ./config/git/.gitconfig;
+  # xdg.configFile."nvim".source = ./nvim;
 }

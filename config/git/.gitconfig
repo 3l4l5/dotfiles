@@ -2,3 +2,6 @@
 [user]
 	name = Ryusei Ohkura
 	email = ohkura.exe@gmail.com
+
+[ghq]
+	root = ~/src
