@@ -45,6 +45,10 @@
     '';
   };
 
+  programs.tmux = {
+    enable = true;
+    extraConfig = builtins.readFile ./config/tmux/tmux.conf;
+  };
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -54,6 +58,7 @@
     enableZshIntegration = true;
   };
   home.packages = with pkgs; [
+    zsh
     git
     gh
     jq
