@@ -6,13 +6,11 @@
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
-  programs.mise = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
+
   programs.zsh = {
     enable = true;
 
@@ -21,14 +19,17 @@
 
     shellAliases = {
       ll = "ls -la";
-      gs = "git status";
       la = "ls -a";
+      gs = "git status";
+      vim = "nvim";
     };
+
     historySubstringSearch = {
       enable = true;
       searchUpKey = "^[[A";
       searchDownKey = "^[[B";
     };
+
     initContent = ''
       # ghq + fzf
       function ghq-fzf() {
@@ -45,36 +46,48 @@
     '';
   };
 
+  programs.mise = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ./config/tmux/tmux.conf;
   };
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
   };
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
   };
+
   home.packages = with pkgs; [
-    zsh
     git
     gh
     jq
     ripgrep
     fd
-    fzf
     neovim
     ghq
     htop
-    direnv
+    bat
+    xz
     nerd-fonts.jetbrains-mono
   ];
+
   fonts.fontconfig.enable = true;
+
   home.file.".gitconfig".source = ./config/git/.gitconfig;
+
   xdg.configFile."starship.toml".source = ./config/starship/starship.toml;
   xdg.configFile."ghostty/config".source = ./config/ghostty/config;
 
-  # xdg.configFile."nvim".source = ./nvim;
+  xdg.configFile."nvim".source =
+    config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/ws/dotfiles/config/nvim";
 }
