@@ -89,5 +89,5 @@
 
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/ws/dotfiles/config/nvim";
+      "${config.home.homeDirectory}/dotfiles/config/nvim";
 }
