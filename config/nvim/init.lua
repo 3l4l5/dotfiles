@@ -1,11 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("lua.plugins.line")
-
-vim.keymap.set("n", "<Space>e", function()
-  print("space e works")
-end)
+require("plugins.line")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -23,22 +19,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.number = true
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#cc2244", bg = "#551100", ctermfg = "black", ctermbg = "gray" })
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#dd3355", bg = "#772211", ctermfg = "black", ctermbg = "gray" })
-
 require("lazy").setup({
-  {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup()
-
-      vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
-    end,
-  },
+  require("plugins.nvim-tree"),
+  require("plugins.buffer"),
   {
     "brenoprata10/nvim-highlight-colors",
     config = function()
@@ -47,6 +30,43 @@ require("lazy").setup({
         enable_named_colors = true,
         enable_tailwind = true,
       })
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT",
+            },
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              checkThirdParty = false,
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      })
+
+      vim.lsp.config("dockerls", {})
+      vim.lsp.config("gopls", {})
+      vim.lsp.config("pyright", {})
+
+      vim.lsp.enable(
+	{
+	  "lua_ls",
+	  "dockerls",
+	  "gopls",
+	  "pyright",
+        }
+      )
     end,
   }
 })

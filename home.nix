@@ -77,6 +77,14 @@
     htop
     bat
     xz
+    
+    # lunguage server
+    lua-language-server
+    dockerfile-language-server-nodejs
+    gopls
+    pyright
+
+    # font
     nerd-fonts.jetbrains-mono
   ];
 
