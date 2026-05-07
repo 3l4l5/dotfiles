@@ -41,6 +41,7 @@ require("lazy").setup({
   require("plugins.nvim-tree"),
   require("plugins.buffer"),
   require("plugins.gitsigns"),
+  require("plugins.tree-sitter"),
   {
     "brenoprata10/nvim-highlight-colors",
     config = function()
