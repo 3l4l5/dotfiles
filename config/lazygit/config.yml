@@ -1,0 +1,12 @@
+gui:
+  showFileTree: true
+  showRandomTip: false
+  showCommandLog: false
+  nerdFontsVersion: "3"
+  language: auto
+git:
+  autoFetch: true
+  autoRefresh: true
+  paging:
+    colorArg: always
+    pager: ""

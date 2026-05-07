@@ -79,6 +79,7 @@
     ghq
     htop
     bat
+    glow
     xz
     
     # lunguage server
