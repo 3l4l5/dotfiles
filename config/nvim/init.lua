@@ -23,6 +23,7 @@ require("lazy").setup({
   require("plugins.colorscheme"),
   require("plugins.nvim-tree"),
   require("plugins.buffer"),
+  require("plugins.tree-sitter"),
   {
     "brenoprata10/nvim-highlight-colors",
     config = function()
