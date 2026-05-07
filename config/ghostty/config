@@ -2,6 +2,10 @@ font-family = "JetBrainsMono Nerd Font"
 font-family = "BIZ UDGothic"
 font-size = 14
 
+background-opacity = 0.85
+background-opacity-cells = true
+background-blur = true
+
 keybind = super+d=new_split:right
 keybind = super+shift+d=new_split:down
 

@@ -1,224 +1,103 @@
-"$schema" = 'https://starship.rs/config-schema.json'
-
+# Which is equivalent to
 format = """
 $username\
 $hostname\
-[](fg:color_no1 bg:color_no2)\
-$directory\
-[](fg:color_no2 bg:color_no3)\
-$git_branch\
-$git_status\
-[](fg:color_no3 bg:color_no4)\
-$c\
-$rust\
-$golang\
-$nodejs\
-$php\
-$java\
-$kotlin\
-$haskell\
-$python\
-[](fg:color_no4 bg:color_no3)\
-$docker_context\
-$conda\
-[](fg:color_no3 bg:color_no1)\
-$time\
-[ ](fg:color_no1)\
-$fill\
-[](color_no1)\
-$os\
-[](fg:color_no1 bg:color_no3)\
 $localip\
-[ ](fg:color_no3 bg:color_no3)\
+$shlvl\
+$singularity\
+$kubernetes\
+$nats\
+$directory\
+$vcsh\
+$fossil_branch\
+$fossil_metrics\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$hg_state\
+$pijul_channel\
+$docker_context\
+$package\
+$bun\
+$c\
+$cmake\
+$cobol\
+$cpp\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$fortran\
+$gleam\
+$golang\
+$gradle\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$maven\
+$mojo\
+$nim\
+$nodejs\
+$ocaml\
+$odin\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$quarto\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$typst\
+$vlang\
+$vagrant\
+$xmake\
+$zig\
+$buf\
+$guix_shell\
+$nix_shell\
+$conda\
+$pixi\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$direnv\
+$env_var\
+$mise\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
 $line_break\
-$character
-"""
-
-palette = 'ryos_gradation'
-
-[palettes.ryos_gradation]
-# Green
-color_fg0 = '#aaaaaa'
-color_fg1 = '#dddddd'
-color_fg2 = '#000000'
-
-color_no1 = '#224400'
-color_no2 = '#337733'
-color_no3 = '#4444bb'
-color_no4 = '#444444'
-
-color_ok = '#33ff33'
-color_ng = '#ff3333'
-
-# Red
-# color_fg0 = '#aaaaaa'
-# color_fg1 = '#dddddd'
-# color_fg2 = '#000000'
-
-#color_no1 = '#442200'
-#color_no2 = '#aa3333'
-#color_no3 = '#773333'
-#color_no4 = '#444444'
-
-#color_ok = '#aaaaff'
-#color_ng = '#ff3333'
-
-# Mono
-#color_fg0 = '#aaaaaa'
-#color_fg1 = '#dddddd'
-#color_fg2 = '#000000'
-
-#color_no1 = '#444444'
-#color_no2 = '#666666'
-#color_no3 = '#222222'
-#color_no4 = '#444444'
-
-#color_ok = '#aaaaff'
-#color_ng = '#ff3333'
-
-[username]
-show_always = true
-style_user = "bg:color_no1 fg:color_fg0"
-style_root = "bg:color_no1 fg:color_fg0"
-format = "[ $user ]($style)"
-
-[hostname]
-ssh_only = false
-style = "fg:color_fg1 bg:color_no1"
-format = "[ $ssh_symbol$hostname ]($style)"
-
-[os]
-disabled = false
-style = "fg:color_fg1 bg:color_no1"
-format = "[ $symbol ]($style)"
-
-[os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = "󰀵"
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-EndeavourOS = ""
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
-Pop = ""
-
-[directory]
-style = "bold fg:color_fg1 bg:color_no2"
-format = "[ $path ]($style)"
-truncation_length = 5
-truncation_symbol = "…/"
-#home_symbol = ""
-truncate_to_repo = false
-
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
-
-[git_branch]
-symbol = ""
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol $branch ]($style)'
-
-[git_status]
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $all_status$ahead_behind ]($style)'
-
-[python]
-symbol = ""
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol $pyenv_prefix($version)(\($virtualenv\))]($style)'
-
-[nodejs]
-symbol = ""
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol ($version) ]($style)'
-
-[c]
-symbol = " "
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol ($version) ]($style)'
-
-[rust]
-symbol = ""
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol ($version) ]($style)'
-
-[golang]
-symbol = ""
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol ($version) ]($style)'
-
-[php]
-symbol = ""
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = ""
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol ($version) ]($style)'
-
-[kotlin]
-symbol = ""
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = ""
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = ""
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol ($context) ]($style)'
-
-[conda]
-style = "fg:color_fg0 bg:color_no3"
-format = '[ $symbol ($environment) ]($style)'
-
-[time]
-disabled = false
-time_format = "%R"
-style = "fg:color_fg0 bg:color_no1"
-format = '[  $time ]($style)'
-
-[line_break]
-#disabled = false
-
-[character]
-disabled = false
-success_symbol = '[](bold green)'
-error_symbol = '[Error ](bold red)'
-vimcmd_symbol = '[](bold green)'
-vimcmd_replace_one_symbol = '[](bold red)'
-vimcmd_replace_symbol = '[](bold red)'
-vimcmd_visual_symbol = '[](bold white)'
-
-[localip]
-disabled = false
-ssh_only = false
-style = "bg:color_no3 fg:color_fg0"
-format = '[$localipv4]($style)'
-
-[fill]
-symbol = " "
-
-#        
-#                                 
+$jobs\
+$battery\
+$time\
+$status\
+$container\
+$netns\
+$os\
+$shell\
+$character"""
