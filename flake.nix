@@ -12,9 +12,7 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      username = "ryusei";
-
-      mkHome = { system, homeDirectory }:
+      mkHome = system:
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
 
@@ -22,23 +20,16 @@
             ./home.nix
 
             {
-              home.username = username;
-              home.homeDirectory = homeDirectory;
+              home.username = builtins.getEnv "USER";
+              home.homeDirectory = builtins.getEnv "HOME";
             }
           ];
         };
     in
     {
       homeConfigurations = {
-        ryusei = mkHome {
-          system = "aarch64-darwin";
-          homeDirectory = "/Users/${username}";
-        };
-
-        ryusei-linux = mkHome {
-          system = "aarch64-linux";
-          homeDirectory = "/home/${username}";
-        };
+        ryusei = mkHome "aarch64-darwin";
+        ryusei-linux = mkHome "aarch64-linux";
       };
     };
 }

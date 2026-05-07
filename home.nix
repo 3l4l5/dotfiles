@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  home.username = "ryusei";
-  home.homeDirectory = "/Users/ryusei";
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
@@ -30,7 +28,12 @@
       searchDownKey = "^[[B";
     };
 
-    initContent = ''
+    initContent = lib.optionalString pkgs.stdenv.isDarwin ''
+      # Homebrew (macOS only)
+      if [ -x /opt/homebrew/bin/brew ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      fi
+    '' + ''
       # ghq + fzf
       function ghq-fzf() {
         local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
