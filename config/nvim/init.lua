@@ -20,6 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.clipboard = "unnamedplus"
 
 require("lazy").setup({
+  require("plugins.colorscheme"),
   require("plugins.nvim-tree"),
   require("plugins.buffer"),
   {
