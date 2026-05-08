@@ -98,6 +98,7 @@
     dockerfile-language-server-nodejs
     gopls
     pyright
+    nixd
 
     # font
     nerd-fonts.jetbrains-mono

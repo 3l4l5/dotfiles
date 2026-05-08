@@ -44,3 +44,5 @@ require("config.line")
 require("lazy").setup({
   { import = "plugins"},
 })
+
+vim.lsp.enable("nixd")
