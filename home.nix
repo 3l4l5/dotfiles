@@ -75,6 +75,11 @@
     nix-direnv.enable = true;
   };
 
+  programs.lazygit = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   home.packages = with pkgs; [
     git
     gh
