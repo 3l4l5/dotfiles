@@ -20,6 +20,7 @@
       la = "ls -a";
       gs = "git status";
       vim = "nvim";
+      vi = "nvim";
     };
 
     historySubstringSearch = {
