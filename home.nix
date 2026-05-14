@@ -19,9 +19,11 @@
       ll = "ls -la";
       la = "ls -a";
       gs = "git status";
+      gbs = "git branch --show-current";
       vim = "nvim";
       vi = "nvim";
       nsync = "home-manager switch --flake ~/dotfiles#ryusei --impure";
+      cdd = "cd ~/dotfiles/";
     };
 
     historySubstringSearch = {
@@ -103,6 +105,8 @@
     gron
     tree-sitter
     glow
+    ripgrep
+    fd
 
     # lunguage server
     lua-language-server
