@@ -102,6 +102,7 @@
     xz
     gron
     tree-sitter
+    glow
 
     # lunguage server
     lua-language-server
