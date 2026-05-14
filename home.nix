@@ -47,6 +47,12 @@
       zle -N ghq-fzf
       bindkey '^g' ghq-fzf
     '';
+    plugins = [
+      {
+        name = "zsh-autocomplete";
+        src = pkgs.zsh-autocomplete;
+      }
+    ];
   };
 
   programs.mise = {
@@ -92,6 +98,7 @@
     bat
     glow
     xz
+    gron
     
     # lunguage server
     lua-language-server
