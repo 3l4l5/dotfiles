@@ -21,6 +21,7 @@
       gs = "git status";
       vim = "nvim";
       vi = "nvim";
+      nsync = "home-manager switch --flake ~/dotfiles#ryusei --impure";
     };
 
     historySubstringSearch = {
@@ -100,7 +101,8 @@
     glow
     xz
     gron
-    
+    tree-sitter
+
     # lunguage server
     lua-language-server
     dockerfile-language-server-nodejs
