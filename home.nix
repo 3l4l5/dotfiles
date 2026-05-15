@@ -50,6 +50,9 @@
 
       zle -N ghq-fzf
       bindkey '^g' ghq-fzf
+    '' + ''
+        # autosuggestionの色
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#c0c0c0"
     '';
     plugins = [
       {
