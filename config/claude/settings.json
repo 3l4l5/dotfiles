@@ -5,6 +5,7 @@
       "Bash(ENVIRONMENT=test poetry run python -m pytest *)",
       "Bash(poetry run task lint)",
       "Bash(poetry run task mypy)",
+      "Bash(poetry run task format)",
       "Bash(codex exec:*)",
       "Bash(grep *)",
 
