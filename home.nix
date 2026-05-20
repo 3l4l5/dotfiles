@@ -125,6 +125,7 @@
   fonts.fontconfig.enable = true;
 
   home.file.".gitconfig".source = ./config/git/.gitconfig;
+  home.file.".claude".source = ./config/claude/settings.json;
 
   xdg.configFile."starship.toml".source = ./config/starship/starship.toml;
   xdg.configFile."ghostty/config".source = ./config/ghostty/config;
