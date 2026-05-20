@@ -16,8 +16,11 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
+      ls = "eza";
       ll = "ls -la";
       la = "ls -a";
+      cat = "bat";
+      cd = "z";
       gs = "git status";
       gbs = "git branch --show-current";
       vim = "nvim";
@@ -91,6 +94,15 @@
   programs.lazygit = {
     enable = true;
     enableZshIntegration = true;
+  };
+  programs.eza = {
+    enable = true;
+  };
+  programs.bat = {
+    enable = true;
+  };
+  programs.zoxide = {
+    enable = true;
   };
 
   home.packages = with pkgs; [
