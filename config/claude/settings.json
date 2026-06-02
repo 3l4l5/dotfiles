@@ -16,6 +16,9 @@
       "Bash(git diff *)",
       "Bash(git fetch)",
       "Bash(git fetch:*)",
+      "Bash(git ls-tree *)",
+      "Bash(awk *)",
+
 
       "Bash(gh pr list)",
       "Bash(gh pr list *)",

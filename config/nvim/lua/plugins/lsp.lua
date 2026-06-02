@@ -13,6 +13,22 @@ return {
       callback = function(args)
         local opts = { buffer = args.buf, silent = true }
 
+        -- カーソル下のシンボルと同じものをハイライト
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client:supports_method("textDocument/documentHighlight") then
+          local group = vim.api.nvim_create_augroup("lsp_document_highlight_" .. args.buf, { clear = true })
+          vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+            group = group,
+            buffer = args.buf,
+            callback = vim.lsp.buf.document_highlight,
+          })
+          vim.api.nvim_create_autocmd("CursorMoved", {
+            group = group,
+            buffer = args.buf,
+            callback = vim.lsp.buf.clear_references,
+          })
+        end
+
         -- コードジャンプ
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)        -- 定義へジャンプ
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)       -- 宣言へジャンプ
