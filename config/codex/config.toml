@@ -1,0 +1,34 @@
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+
+[tui]
+status_line = [
+  "model-with-reasoning",
+  "context-used",
+  "five-hour-limit",
+  "weekly-limit",
+  "used-tokens",
+]
+status_line_use_colors = true
+
+[projects."/Users/ryusei_ohkura/ghq/github.com/engineers-anime/study-from-anime-tbf20"]
+trust_level = "trusted"
+
+[projects."/Users/ryusei_ohkura/ghq/github.com/xmart-corp/xorder-invoice-api"]
+trust_level = "trusted"
+
+[projects."/Users/ryusei_ohkura/ws/xmart/xorder-invoice-api"]
+trust_level = "trusted"
+
+[projects."/Users/ryusei_ohkura/src/github.com/xmart-corp/xorder-invoice-api"]
+trust_level = "trusted"
+
+[projects."/Users/ryusei_ohkura/Downloads/ExportBlock-b6489e29-0dd8-44c9-ab6d-10104154dea7-Part-1"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 3
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
+"gpt-5.4" = "gpt-5.5"
