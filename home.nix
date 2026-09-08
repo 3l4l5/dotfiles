@@ -142,10 +142,7 @@
     recursive = true;
     force = true;
   };
-  home.file.".codex/config.toml" = {
-    source = ./config/codex/config.toml;
-    force = true;
-  };
+  home.file.".codex/config.toml".source = ./config/codex/config.toml;
 
   xdg.configFile."starship.toml".source = ./config/starship/starship.toml;
   xdg.configFile."ghostty/config".source = ./config/ghostty/config;
