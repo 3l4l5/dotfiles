@@ -9,6 +9,12 @@
     "$HOME/.local/bin"
   ];
 
+  # eMudhra 中間CA侵害 (CVE-2026-111943) 対策: Node に組み込みルートではなく更新済みの CA バンドルを使わせる
+  home.sessionVariables = lib.mkIf pkgs.stdenv.isDarwin {
+    NODE_OPTIONS = "--use-openssl-ca";
+    SSL_CERT_FILE = "/opt/homebrew/etc/ca-certificates/cert.pem";
+  };
+
   programs.zsh = {
     enable = true;
 
