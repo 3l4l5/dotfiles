@@ -1,5 +1,7 @@
-model = "gpt-5.5"
-model_reasoning_effort = "medium"
+model = "gpt-6-astra"
+model_reasoning_effort = "low"
+
+notify = ["/Users/ryusei_ohkura/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
 
 [tui]
 status_line = [
@@ -10,6 +12,10 @@ status_line = [
   "used-tokens",
 ]
 status_line_use_colors = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 3
+gpt-6-astra = 3
 
 [projects."/Users/ryusei_ohkura/ghq/github.com/engineers-anime/study-from-anime-tbf20"]
 trust_level = "trusted"
@@ -26,9 +32,99 @@ trust_level = "trusted"
 [projects."/Users/ryusei_ohkura/Downloads/ExportBlock-b6489e29-0dd8-44c9-ab6d-10104154dea7-Part-1"]
 trust_level = "trusted"
 
-[tui.model_availability_nux]
-"gpt-5.5" = 3
+[projects."/Users/ryusei_ohkura/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/ryusei_ohkura/src/github.com/xmart-corp"]
+trust_level = "trusted"
+
+[projects."/Users/ryusei_ohkura/Documents/Codex/2026-09-08/new-chat"]
+trust_level = "trusted"
 
 [notice.model_migrations]
 "gpt-5.3-codex" = "gpt-5.4"
 "gpt-5.4" = "gpt-5.5"
+
+[desktop]
+followUpQueueMode = "steer"
+external-agent-import-sync-item-types = "all"
+external-agent-import-sync-enabled = true
+conversationDetailMode = "STEPS_PROSE"
+ambient-suggestions-enabled = true
+selected-avatar-id = "pet_6ac8591337588191ae67d757dfb355ff"
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "/Users/ryusei_ohkura/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "/Users/ryusei_ohkura/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/ryusei_ohkura/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "/Users/ryusei_ohkura/.codex"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
+BROWSER_USE_TINYSKY_ENABLED = "1"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.1007.30912"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/ryusei_ohkura/.codex/plugins/cache/openai-bundled/browser/26.1007.30912/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+SKY_CUA_SERVICE_PATH = "/Users/ryusei_ohkura/.codex/computer-use/Codex Computer Use.app"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+args = ["mcp"]
+cwd = "."
+enabled = false
+
+[features]
+memories = true
+
+[memories]
+generate_memories = true
+use_memories = true
