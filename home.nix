@@ -25,7 +25,7 @@
       gbs = "git branch --show-current";
       vim = "nvim";
       vi = "nvim";
-      nsync = "home-manager switch --flake ~/dotfiles#ryusei --impure";
+      nsync = "git -C ~/dotfiles pull --ff-only && home-manager switch --flake ~/dotfiles#ryusei --impure";
       cdd = "cd ~/dotfiles/";
     };
 
@@ -56,6 +56,11 @@
     '' + ''
         # autosuggestionの色
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#c0c0c0"
+
+        # SSH接続時のみTERMを変更
+        ssh() {
+            TERM=xterm-256color command ssh "$@"
+        }
     '';
     plugins = [
       {
