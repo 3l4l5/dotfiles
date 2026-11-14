@@ -9,6 +9,22 @@
     "$HOME/.local/bin"
   ];
 
+  # eMudhra 中間CA侵害 (CVE-2026-111943) 対策: Node に組み込みルートではなく更新済みの CA バンドルを使わせる
+  # eMudhra 中間CA侵害 (CVE-2026-111943) 対策:
+  # Node / Bun に組み込みルートではなく nixpkgs 管理の CA バンドルを使わせる
+  home.sessionVariables = lib.mkIf pkgs.stdenv.isDarwin (
+    let
+      caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+    in {
+      # Node.js 本体向け（--use-openssl-ca で SSL_CERT_FILE を読むようになる）
+      NODE_OPTIONS = "--use-openssl-ca";
+      SSL_CERT_FILE = caBundle;
+      # Bun ベースの CLI（Claude Code native 等）は NODE_OPTIONS を無視するので、
+      # こちらで同じバンドルを確実に渡す
+      NODE_EXTRA_CA_CERTS = caBundle;
+    }
+  );
+
   programs.zsh = {
     enable = true;
 
@@ -147,10 +163,9 @@
     recursive = true;
     force = true;
   };
-  home.file.".codex/config.toml" = {
-    source = ./config/codex/config.toml;
-    force = true;
-  };
+  home.file.".codex/config.toml".source =
+  config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/dotfiles/config/codex/config.toml";
 
   xdg.configFile."starship.toml".source = ./config/starship/starship.toml;
   xdg.configFile."ghostty/config".source = ./config/ghostty/config;

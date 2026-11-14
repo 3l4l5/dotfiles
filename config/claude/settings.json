@@ -12,14 +12,18 @@
       "Bash(npm run lint)",
       "Bash(npm run test *)",
 
+      "Bash(awk *)",
+
       "Bash(git status)",
       "Bash(git diff *)",
       "Bash(git fetch)",
       "Bash(git fetch:*)",
       "Bash(git ls-tree *)",
-      "Bash(awk *)",
 
+      "Bash(git add *)",
+      "Bash(git commit *)",
 
+      "Bash(gh pr create *)",
       "Bash(gh pr list)",
       "Bash(gh pr list *)",
       "Bash(gh run list)",
@@ -28,17 +32,10 @@
       "Bash(gh workflow list *)",
       "Bash(gh pr checks)",
       "Bash(gh pr checks *)"
-
     ],
-    "ask": [
-      "Bash(git add *)",
-      "Bash(git commit *)",
-      "Bash(git push *)",
-      "Bash(gh pr create *)",
-      "Bash(gh pr merge *)"
-    ],
+    "ask": ["Bash(curl *)", "Bash(wget *)", "Bash(gh pr merge *)"],
     "deny": [
-      "Bash(curl *)",
+      "Bash(git push origin main)",
       "Read(./.env)",
       "Read(./.env.*)",
       "Read(./secrets/**)"
